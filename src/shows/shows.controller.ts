@@ -14,11 +14,14 @@ import {
 } from '@nestjs/swagger';
 import axios, { AxiosResponse } from 'axios';
 import parse from 'node-html-parser';
+import { Public } from 'src/auth/public-strategy';
 
 @Controller('shows')
 export class ShowsController {
   constructor() {}
   private BASE_URL = `https://api.tvmaze.com/`;
+
+  @Public()
   @Get()
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get All shows & search' })
