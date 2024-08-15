@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BaseUser } from 'src/dto/user/base-user.dto';
 import { Public } from './public-strategy';
+import { v4 as uuidv4 } from 'uuid';
 @Controller('auth')
 @ApiTags('auth')
 export class AuthController {
@@ -30,6 +31,7 @@ export class AuthController {
   })
   signUp(@Body() signUpDto: Record<string, any>) {
     const payload = {
+      id: uuidv4(),
       username: signUpDto.username,
       email: signUpDto.email,
       password: signUpDto.password,

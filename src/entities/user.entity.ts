@@ -7,7 +7,7 @@ export class UserEntity extends Model {
   @PrimaryKey
   @Unique
   @Column
-  id: number;
+  id: string;
   @Column
   username: string;
   @Column
