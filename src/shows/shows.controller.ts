@@ -67,7 +67,7 @@ export class ShowsController {
       .slice(0, 9);
     return shows;
   }
-
+  @Public()
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get One show' })
@@ -81,7 +81,7 @@ export class ShowsController {
     const views = Math.floor(Math.random() * 10000);
     return { ...showRequest.data, views, series: seriesRequest.data };
   }
-
+  @Public()
   @Get('/byGenre/:genre')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get shows by genre' })
@@ -103,7 +103,7 @@ export class ShowsController {
     );
     return amount ? shows.slice(0, amount) : shows;
   }
-
+  @Public()
   @Get('/byCountry/:id')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get popular shows by country' })
@@ -119,7 +119,7 @@ export class ShowsController {
     );
     return amount ? shows.slice(0, amount) : shows;
   }
-
+  @Public()
   @Get('/actor/:id')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Get Actor by id' })
@@ -155,7 +155,7 @@ export class ShowsController {
       casts: castsResult,
     };
   }
-
+  @Public()
   @Get(':id/cast')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'get show Cast' })
